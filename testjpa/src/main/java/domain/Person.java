@@ -48,7 +48,7 @@ public class Person {
         this.name = name;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade=CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade=CascadeType.ALL)
 	@JsonIgnore
 	public List<Home> getHomes() {
 		return homes;
@@ -58,7 +58,7 @@ public class Person {
 		this.homes = homes;
 	}
 
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade=CascadeType.PERSIST)
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade=CascadeType.ALL)
 	@JsonIgnore
 	public List<ElectronicDevice> getDevices() {
 		return devices;

@@ -14,3 +14,6 @@
 0:0:0:0:0:0:0:1 - - [26/Feb/2018:17:48:19 +0100] "POST /rest/domain/addhome?adresse=rue+de+la+soif&id=1 HTTP/1.1" 200 54 http-bio-8181-exec-1 6508
 0:0:0:0:0:0:0:1 - - [26/Feb/2018:17:49:46 +0100] "POST /rest/domain/addhome?adresse=rue+de+la+soif2&idOwner=1 HTTP/1.1" 200 55 http-bio-8181-exec-3 253
 0:0:0:0:0:0:0:1 - - [26/Feb/2018:17:51:09 +0100] "POST /rest/domain/addhome?adresse=rue+de+la+soif2&idOwner=1 HTTP/1.1" 200 55 http-bio-8181-exec-1 3055
+0:0:0:0:0:0:0:1 - - [26/Feb/2018:18:11:04 +0100] "DELETE /rest/domain/people?idPerson=1 HTTP/1.1" 500 3372 http-bio-8181-exec-1 5518
+0:0:0:0:0:0:0:1 - - [26/Feb/2018:18:14:11 +0100] "DELETE /rest/domain/people?idPerson=1 HTTP/1.1" 500 14321 http-bio-8181-exec-1 4766
+0:0:0:0:0:0:0:1 - - [26/Feb/2018:18:16:17 +0100] "DELETE /rest/domain/people?idPerson=1 HTTP/1.1" 204 - http-bio-8181-exec-1 2626

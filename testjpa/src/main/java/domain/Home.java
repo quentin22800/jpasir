@@ -46,7 +46,7 @@ public class Home {
         this.adresse = adresse;
     }
     
-    @OneToMany(fetch = FetchType.EAGER, mappedBy="homeOwner", cascade=CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy="homeOwner", cascade=CascadeType.ALL)
 	public List<Heater> getHeatrs() {
 		return heatrs;
 	}

@@ -8,6 +8,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -116,6 +117,27 @@ public class SampleWebService {
 		return Response.status(200)
 				.entity("addHome is called, adresse : " + adresse)
 				.build();
+	}
+	
+	@DELETE
+	@Path("/people")
+	public void deletePerson(@QueryParam("idPerson") Long idPerson) {
+		EntityManagerFactory factory = getFactory();
+		EntityManager manager = getEntityManager(factory);
+
+		Person p = manager.find(Person.class, idPerson);
+		
+		EntityTransaction tx = manager.getTransaction();
+		
+		tx.begin();
+		try {
+			manager.remove(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		tx.commit();
+		manager.close();
+		factory.close();
 	}
 
 	public EntityManager getEntityManager(EntityManagerFactory fact)
