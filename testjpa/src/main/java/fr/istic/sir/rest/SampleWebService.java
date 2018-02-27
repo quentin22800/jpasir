@@ -1,5 +1,6 @@
 package fr.istic.sir.rest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -121,6 +122,30 @@ public class SampleWebService {
 
 		return res;
 	}
+	
+	@GET
+	@Path("/friends")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Person> getFriends(
+			@QueryParam("idPerson") Long idPerson) {
+
+		EntityManagerFactory factory = getFactory();
+		EntityManager manager = getEntityManager(factory);
+		List<Person> res = new ArrayList<Person>();
+		String queryString = "SELECT p FROM Person p WHERE p.id = :id";
+		
+		try {
+			
+			Query query = manager.createQuery(queryString);
+			query.setParameter("id", idPerson);
+			Person person = (Person)query.getSingleResult();
+			res = person.getFriends();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return res;
+	}
 
 	@POST
 	@Path("/home")
@@ -153,6 +178,33 @@ public class SampleWebService {
 
 		return Response.status(200)
 				.entity("addHome is called, adresse : " + adresse)
+				.build();
+	}
+	
+	@POST
+	@Path("/people")
+	public Response addPeople(
+			@QueryParam("name") String name) {
+		
+		EntityManagerFactory factory = getFactory();
+		EntityManager manager = getEntityManager(factory);
+
+		EntityTransaction tx = manager.getTransaction();
+			
+		tx.begin();
+		try {
+			
+			Person p = new Person();
+			p.setName(name);
+			manager.persist(p);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		tx.commit();
+
+		return Response.status(200)
+				.entity("addPeople is called, name : " + name)
 				.build();
 	}
 	

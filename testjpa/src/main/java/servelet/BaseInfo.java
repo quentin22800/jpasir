@@ -1,7 +1,6 @@
 package servelet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.Home;
 import domain.Person;
 
 @WebServlet(name="baseinfo",urlPatterns={"/infos"})

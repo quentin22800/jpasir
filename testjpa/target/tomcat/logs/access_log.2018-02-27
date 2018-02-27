@@ -3,3 +3,6 @@
 0:0:0:0:0:0:0:1 - - [27/Feb/2018:14:30:38 +0100] "GET /rest/domain/heaters HTTP/1.1" 200 58 http-bio-8181-exec-2 182
 0:0:0:0:0:0:0:1 - - [27/Feb/2018:14:32:56 +0100] "GET /rest/domain/smartDevices HTTP/1.1" 500 3734 http-bio-8181-exec-1 2739
 0:0:0:0:0:0:0:1 - - [27/Feb/2018:14:33:33 +0100] "GET /rest/domain/smartDevices HTTP/1.1" 200 151 http-bio-8181-exec-1 3168
+0:0:0:0:0:0:0:1 - - [27/Feb/2018:14:40:48 +0100] "POST /rest/domain/people?name=truc HTTP/1.1" 200 43 http-bio-8181-exec-1 2587
+0:0:0:0:0:0:0:1 - - [27/Feb/2018:14:43:44 +0100] "GET /rest/domain/people HTTP/1.1" 200 110 http-bio-8181-exec-3 1079
+0:0:0:0:0:0:0:1 - - [27/Feb/2018:14:49:31 +0100] "GET /rest/domain/friends?idPerson=3 HTTP/1.1" 200 37 http-bio-8181-exec-1 3098
